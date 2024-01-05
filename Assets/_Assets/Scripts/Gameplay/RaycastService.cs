@@ -6,8 +6,6 @@ namespace _Assets.Scripts.Gameplay
     public class RaycastService : MonoBehaviour
     {
         [SerializeField] private Camera mainCamera;
-        //TODO: remove it
-        [Inject] private RewindService _rewindService;
 
         private void Update()
         {
@@ -21,11 +19,6 @@ namespace _Assets.Scripts.Gameplay
                         nut.OnSelected();
                     }
                 }
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                _rewindService.Rewind();
             }
         }
     }

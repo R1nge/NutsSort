@@ -8,15 +8,9 @@ namespace _Assets.Scripts.Gameplay
         private Bolt _selectedBolt;
         private Nut _selectedBoltNut;
 
-        private BoltMoverService(RewindService rewindService)
-        {
-            _rewindService = rewindService;
-        }
+        private BoltMoverService(RewindService rewindService) => _rewindService = rewindService;
 
-        public bool HasBoltSelected()
-        {
-            return _selectedBolt != null;
-        }
+        public bool HasBoltSelected() => _selectedBolt != null;
 
         public void Select(Bolt bolt, Nut nut)
         {

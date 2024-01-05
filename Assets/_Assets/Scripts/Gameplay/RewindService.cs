@@ -7,17 +7,14 @@ namespace _Assets.Scripts.Gameplay
     {
         private readonly Stack<BoltHistory> _boltHistory = new();
 
-        public void Add(BoltHistory history)
-        {
-            _boltHistory.Push(history);
-        }
+        public void Add(BoltHistory history) => _boltHistory.Push(history);
 
         public void Rewind()
         {
             if (_boltHistory.TryPop(out var history))
             {
                 history.Bolt.MoveTo(history.Previous);
-                history.Current.Remove(history.Bolt);    
+                history.Current.Remove();    
             }
             else
             {
