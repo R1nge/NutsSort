@@ -2,11 +2,13 @@
 {
     public struct BoltHistory
     {
+        public Bolt Bolt;
         public Nut Previous;
         public Nut Current;
 
-        public BoltHistory(Nut previous, Nut current)
+        public BoltHistory(Bolt bolt, Nut previous, Nut current)
         {
+            Bolt = bolt;
             Previous = previous;
             Current = current;
         }

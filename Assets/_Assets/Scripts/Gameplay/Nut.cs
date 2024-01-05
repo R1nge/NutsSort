@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 
@@ -11,10 +12,19 @@ namespace _Assets.Scripts.Gameplay
         //TODO: Make 'Action' and save it to collection
         //TODO: 'Action' should contain 'previous bolt position (initial)' and 'new bold position'
 
-        private Stack<Bolt> _bolts;
+        [SerializeField] private Bolt[] bolts;
+        private readonly Stack<Bolt> _bolts = new();
         [Inject] private BoltMoverService _boltMoverService;
 
-        private void OnSelected()
+        private void Start()
+        {
+            for (int i = 0; i < bolts.Length; i++)
+            {
+                _bolts.Push(bolts[i]);    
+            }
+        }
+
+        public void OnSelected()
         {
             if (_boltMoverService.HasBoltSelected())
             {
@@ -31,6 +41,16 @@ namespace _Assets.Scripts.Gameplay
                     _boltMoverService.Select(bolt, this);
                 }
             }
+        }
+
+        public void Add(Bolt bolt)
+        {
+            _bolts.Push(bolt);
+        }
+
+        public void Remove(Bolt bolt)
+        {
+            _bolts.Pop();
         }
 
         private bool IsFull() => false;

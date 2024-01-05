@@ -14,12 +14,13 @@ namespace _Assets.Scripts.Gameplay
 
         public void Select()
         {
-            
+            Debug.Log("Bolt selected", this);
         }
 
         public void MoveTo(Nut nut)
         {
             transform.position = nut.transform.position;
+            nut.Add(this);
         }
     }
 }

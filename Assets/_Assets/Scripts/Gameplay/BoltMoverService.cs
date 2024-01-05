@@ -32,9 +32,10 @@ namespace _Assets.Scripts.Gameplay
             }
             else
             {
-                var history = new BoltHistory(_selectedBoltNut, next);
+                var history = new BoltHistory(_selectedBolt, _selectedBoltNut, next);
                 _rewindService.Add(history);
                 _selectedBolt.MoveTo(next);
+                _selectedBolt = null;
             }
         }
     }
