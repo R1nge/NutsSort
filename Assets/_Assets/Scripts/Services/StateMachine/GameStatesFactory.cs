@@ -1,6 +1,6 @@
-﻿using Services.StateMachine.States;
+﻿using _Assets.Scripts.Services.StateMachine.States;
 
-namespace Services.StateMachine
+namespace _Assets.Scripts.Services.StateMachine
 {
     public class GameStatesFactory
     {
