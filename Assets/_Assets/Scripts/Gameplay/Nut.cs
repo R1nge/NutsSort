@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using VContainer;
 
@@ -6,6 +7,7 @@ namespace _Assets.Scripts.Gameplay
 {
     public class Nut : MonoBehaviour
     {
+        [SerializeField] private int maxBoltCount;
         [SerializeField] private Transform[] boltsPositions;
         [SerializeField] private Bolt[] bolts;
         private readonly Stack<Bolt> _bolts = new();
@@ -41,19 +43,40 @@ namespace _Assets.Scripts.Gameplay
             }
         }
 
-        public void Add(Bolt bolt) => _bolts.Push(bolt);
+        public void Add(Bolt bolt)
+        {
+            _bolts.Push(bolt);
+
+            if (IsComplete())
+            {
+                Debug.LogError("Completed");
+            }
+        }
 
         public void Remove() => _bolts.Pop();
 
         private bool IsFull()
         {
-            //TODO: implement
-            return false;
+            return _bolts.Count == maxBoltCount;
         }
 
         private bool IsComplete()
         {
-            //TODO: implement
+            if (IsFull())
+            {
+                bool isComplete = true;
+                var list = _bolts.ToList();
+                if (list.Any(bolt => bolt.BoltType != list[0].BoltType))
+                {
+                    Debug.Log("Elements are not the same");
+                }
+                else
+                {
+                    Debug.Log("Elements are the same");
+                    return true;
+                }
+            }
+            
             return false;
         }
     }

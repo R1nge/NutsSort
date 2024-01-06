@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562873932c30439eb5e48d1e5a3bb15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxBoltCount: 5
   boltsPositions:
   - {fileID: 6452526017749843139}
   - {fileID: 1969233191364194154}

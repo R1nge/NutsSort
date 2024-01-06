@@ -60,7 +60,8 @@ PrefabInstance:
       propertyPath: boltType
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5549073106526600755, guid: 60154f6d30f35104c82ec5a8407e6bf6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
