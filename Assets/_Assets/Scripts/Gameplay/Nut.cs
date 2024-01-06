@@ -55,16 +55,12 @@ namespace _Assets.Scripts.Gameplay
 
         public void Remove() => _bolts.Pop();
 
-        private bool IsFull()
-        {
-            return _bolts.Count == maxBoltCount;
-        }
+        public bool IsFull() => _bolts.Count == maxBoltCount;
 
-        private bool IsComplete()
+        public bool IsComplete()
         {
             if (IsFull())
             {
-                bool isComplete = true;
                 var list = _bolts.ToList();
                 if (list.Any(bolt => bolt.BoltType != list[0].BoltType))
                 {
@@ -79,5 +75,7 @@ namespace _Assets.Scripts.Gameplay
             
             return false;
         }
+
+        public bool IsEmpty() => _bolts.Count == 0;
     }
 }

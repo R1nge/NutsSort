@@ -6,5 +6,4 @@
 ////Restart button
 
 ///GamePlay
-////Win when all nuts are completed
 ////Animations
