@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Assets.Scripts.Gameplay
 {
@@ -8,22 +6,17 @@ namespace _Assets.Scripts.Gameplay
     {
         [SerializeField] private BoltType boltType;
         public BoltType BoltType => boltType;
-        public bool Compare(BoltType another) => boltType == another;
-
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(5f);
-        }
 
         public void Select()
         {
             Debug.Log("Bolt selected", this);
+            //TODO: play animation
         }
 
         public void MoveTo(Nut nut)
         {
             nut.Add(this);
-            transform.position = nut.TopPosition.position;
+            transform.position = nut.CurrentTopPosition.position;
         }
     }
 }

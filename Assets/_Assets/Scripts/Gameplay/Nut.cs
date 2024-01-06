@@ -10,10 +10,12 @@ namespace _Assets.Scripts.Gameplay
         [SerializeField] private int maxBoltCount;
         [SerializeField] private Transform[] boltsPositions;
         [SerializeField] private Bolt[] bolts;
+        [SerializeField] private Transform absoluteTopPosition;
         private readonly Stack<Bolt> _bolts = new();
         [Inject] private BoltMoverService _boltMoverService;
 
-        public Transform TopPosition => boltsPositions[_bolts.Count - 1];
+        public Transform AbsoluteTopPosition => absoluteTopPosition;
+        public Transform CurrentTopPosition => boltsPositions[_bolts.Count - 1];
 
         private void Start()
         {
