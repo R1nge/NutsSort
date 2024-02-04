@@ -7,3 +7,5 @@
 
 ///GamePlay
 ////Animations
+////Spawn nuts
+////Spawn bolt randomly

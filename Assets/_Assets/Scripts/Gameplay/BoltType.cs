@@ -1,12 +1,12 @@
 ﻿namespace _Assets.Scripts.Gameplay
 {
-    public enum BoltType
+    public enum BoltType : byte
     {
-        White,
-        Blue,
-        Red,
-        Yellow,
-        Purple,
-        Green
+        White = 0,
+        Blue = 1,
+        Red = 2,
+        Yellow = 3,
+        Purple = 4,
+        Green = 5
     }
 }

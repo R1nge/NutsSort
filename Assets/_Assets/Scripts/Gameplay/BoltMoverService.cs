@@ -16,8 +16,7 @@ namespace _Assets.Scripts.Gameplay
         {
             _selectedBolt = bolt;
             _selectedBoltNut = nut;
-            //TODO: lerp
-            _selectedBolt.transform.position = nut.AbsoluteTopPosition.position;
+            bolt.Select(nut);
         }
 
         public void MoveTo(Nut next)

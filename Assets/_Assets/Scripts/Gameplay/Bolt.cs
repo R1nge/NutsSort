@@ -7,10 +7,10 @@ namespace _Assets.Scripts.Gameplay
         [SerializeField] private BoltType boltType;
         public BoltType BoltType => boltType;
 
-        public void Select()
+        public void Select(Nut currentNut)
         {
-            Debug.Log("Bolt selected", this);
-            //TODO: play animation
+            transform.position = currentNut.AbsoluteTopPosition.position;
+            //transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.FastBeyond360);
         }
 
         public void MoveTo(Nut nut)

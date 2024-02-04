@@ -15,6 +15,7 @@ namespace _Assets.Scripts.Gameplay
         [Inject] private BoltMoverService _boltMoverService;
 
         public Transform AbsoluteTopPosition => absoluteTopPosition;
+
         public Transform CurrentTopPosition => boltsPositions[_bolts.Count - 1];
 
         private void Start()
@@ -37,9 +38,9 @@ namespace _Assets.Scripts.Gameplay
             }
             else
             {
-                if(_bolts.TryPop(out var bolt))
+                if (_bolts.TryPop(out var bolt))
                 {
-                    bolt.Select();
+                    bolt.Select(this);
                     _boltMoverService.Select(bolt, this);
                 }
             }
@@ -74,7 +75,7 @@ namespace _Assets.Scripts.Gameplay
                     return true;
                 }
             }
-            
+
             return false;
         }
 
